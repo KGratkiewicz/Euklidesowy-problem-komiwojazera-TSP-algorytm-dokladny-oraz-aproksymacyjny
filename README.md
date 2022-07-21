@@ -27,14 +27,17 @@ Do rozwiązania dokładnego zadania wyznaczeniu optymalnego cyklu Hamiltona, zos
 Kluczową operacją dla działania tego algorytmu jest sprawdzenie wszystkich istniejących cyklów Hamiltona dla grafu. Z własności permutacji wiemy, że istnieje n! takich cyklów, gdzie n jest ilością wierzchołków w grafie. 
 
 ![image](https://user-images.githubusercontent.com/71324202/180170225-70e3d5e7-a475-404c-ab3d-dde8ecb9fceb.png)
+
 *Rysunek 1 Określanie wszystkich cykli Hamiltona za pomocą drzewa*
 
 ![image](https://user-images.githubusercontent.com/71324202/180170288-fa289bdd-1c4a-4938-8f6c-f9d5285a099b.png)
+
 *Rysunek 2 Przykład dla n=4*
 
 Proces ten można zoptymalizować i ograniczyć się do rozpatrzenie tylko jednego z n utworzonych drzew. Wynika to z tego, że powstałe cykle Hamiltona są identyczne w każdym drzewie, a różnią się jedynie punktem startowym. W ten sposób zostanie sprawdzone jedynie n!/n permutacji, jednak nie zmniejszy to skuteczności algorytmu.
 
 ![image](https://user-images.githubusercontent.com/71324202/180170502-5ae7069e-32ca-4b24-bb3e-c617eb65c773.png)
+
 *Rysunek 3 Redundancyjne cykle Hamiltona na podstawie Rysunku 2*
 
 ## Opis algorytmu aproksymacyjnego służącego do rozwiązania zadanego problemu
@@ -46,18 +49,23 @@ Istnieje algorytm dwu-aproksymacyjny rozwiązujący problem komiwojażera. Opart
 1. Return cykl Hamiltona H
 
 ![image](https://user-images.githubusercontent.com/71324202/180170623-772a454c-ab34-41ee-9a87-51859294c84f.png)
+
 *Rysunek 4 Przykładowy graf*
 
 ![image](https://user-images.githubusercontent.com/71324202/180170682-f23def27-7278-4923-aa6d-541f74089fd7.png)
+
 *Rysunek 5 Minimalne drzewo rozpinające – MST (określone algorytmem prima)*
 
 ![image](https://user-images.githubusercontent.com/71324202/180170728-a3af1acb-c722-4366-974d-fb858ba2418f.png)
+
 *Rysunek 6 Odwiedzenie wierzchołków w kolejności PREORDER*
 
 ![image](https://user-images.githubusercontent.com/71324202/180170791-c67bd3c9-47a1-46fd-9d9d-71f919106939.png)
+
 *Rysunek 7 Rozwiązanie przybliżone: 173.95* 
 
 ![image](https://user-images.githubusercontent.com/71324202/180170867-66cd1e0d-a7a8-4f52-a30f-23cdbe1160a1.png)
+
 *Rysunek 8 Rozwiązanie dokładne: 163.25*
 
 ## Implementacja algorytmów przy użyciu Notebook Colaboratory i języka Python
@@ -131,6 +139,7 @@ W przypadku algorytmu aproksymacyjnego utworzone zostanie drzewo o n wierzchołk
 Do sprawdzenia poprawności przeprowadzonej analizy odnośnie złożoności obliczeniowej algorytmu dokładnego został przeprowadzony eksperyment porównujący obliczoną wartość oczekiwaną z rzeczywistym czasem działania algorytmu. W teście wygenerowano grafy o ilości wierzchołków od 2-9 oraz zmierzono rzeczywisty czas działania algorytmu oraz policzono wartość oczekiwaną obliczoną w punkcie 5.1.1. sprawozdania. Wyniki eksperymentu zostały zestawione na wykresie 1.
 
 ![image](https://user-images.githubusercontent.com/71324202/180173092-71a9c412-f0a8-4450-9e02-ab23d2d5e638.png)
+
 *Wykres 1 Wykres złożoności oszacowanej i zmierzonej dla algorytmu dokładnego*
 
 ### Porównanie złożoności czasowej – algorytm aproksymacyjny.
@@ -138,6 +147,7 @@ Do sprawdzenia poprawności przeprowadzonej analizy odnośnie złożoności obli
 Do sprawdzenia poprawności przeprowadzonej analizy odnośnie złożoności obliczeniowej algorytmu aproksymacyjnego został przeprowadzony eksperyment porównujący obliczoną wartość oczekiwaną z rzeczywistym czasem działania algorytmu. W teście wygenerowano po 500 egzemplarzy grafów o rozmiarach od 2 do 50 wierzchołków. Dla każdego z wierzchołków obliczono średni czas działania algorytmu i takie wyniki porównano z wartością określoną w rozważaniach teoretycznych w punkcie 5.1.2. sprawozdania. Wyniki eksperymentu zostały zestawione na wykresie 2.
 
 ![image](https://user-images.githubusercontent.com/71324202/180173218-f071757d-377d-4787-8b24-18f788dadc93.png)
+
 *Wykres 2 Wykres złożoności oszacowanej i zmierzonej dla algorytmu aproksymacyjnego*
 
 ### Porównanie złożoności rzeczywistej algorytmu dokładnego i aproksymacyjnego
@@ -145,6 +155,7 @@ Do sprawdzenia poprawności przeprowadzonej analizy odnośnie złożoności obli
 Do porównania złożoności obliczeniowej zastosowanych algorytmów obliczono średnie czasy wykonania algorytmów dla grafów o rozmiarze 2-7 wierzchołków (dla algorytmu dokładnego) oraz 2-10 wierzchołków (dla algorytmu aproksymacyjnego). Każdą średnią policzono z próby 5 grafów każdego rozmiaru. Wyniki zestawiono na wykresie 3.
 
 ![image](https://user-images.githubusercontent.com/71324202/180173301-0a9ca4db-135d-4a7e-8ac9-dace1c911427.png)
+
 *Wykres 3 Porównanie złożoności czasowej algorytmu aproksymacyjnego i dokładnego*
 
 ### Porównanie odległości rozwiązania dokładnego oraz rozwiązania aproksymacyjnego
@@ -152,19 +163,23 @@ Do porównania złożoności obliczeniowej zastosowanych algorytmów obliczono �
 Przeprowadzono serię testów grafów o rozmiarze 3-8 wierzchołków gdzie w stu próbach określana była średnia odległość pomiędzy rozwiązaniami oraz ilość znalezionych rozwiązań dokładnych przez algorytm aproksymacyjny. Wyniki zestawiono na wykresach 4 i 5.
 
 ![image](https://user-images.githubusercontent.com/71324202/180173367-edeeea14-c3d8-4aca-9e3e-f18b7e3e7039.png)
+
 *Wykres 4 Średnia odległość od rozwiązania dokładnego w zależności od ilości wierzchołków*
 
 ![image](https://user-images.githubusercontent.com/71324202/180173399-372ab219-24cd-4611-8ade-46af8ed8c424.png)
+
 *Wykres 5 Liczba znalezionych rozwiązań dokładnych przez algorytm aproksymacyjny*
 
 Dokonano serię 100 pomiarów grafów o rozmiarze 7 wierzchołków i zbadano ich odległości względne (wyrażone w %). Wyniki przedstawiono na wykresie 6.
 
 ![image](https://user-images.githubusercontent.com/71324202/180173430-e904b8ff-0e17-4aa5-8c16-41c6b6b673d2.png)
+
 *Wykres 6 Seria 100 pomiarów odległości względnej dla grafów o rozmiarze 7 wierzchołków*
 
 Dokonano serię 100 pomiarów grafów o rozmiarze 5 wierzchołków i zbadano ich odległości względne (wyrażone w %). Wyniki przedstawiono na wykresie 7.
 
 ![image](https://user-images.githubusercontent.com/71324202/180173493-34266593-108c-49ad-a13b-1f0ec50ffdf8.png)
+
 *Wykres 7  Seria 100 pomiarów odległości względnej dla grafów o rozmiarze 5 wierzchołków*
 
 ## Wnioski
